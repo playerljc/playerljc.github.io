@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h2>安装</h2>
+<pre>
+    <code>
+      npm install @ctmobile/ui --save-dev
+    </code>
+  </pre>
+
+<h2>使用</h2>
+<h3>引入js</h3>
+<pre><code>
+    import {Accordion} from '@ctmobile/ui';
+  </code></pre>
+
+<h3>按需引入 js</h3>
+<ul>
+  <li>使用 babel-plugin-import</li>
+</ul>
+<pre><code>
+    {
+      "plugins": [
+        ["import", { libraryName: "@ctmobile/ui"}]
+      ]
+    }
+  </code></pre>
+
+<h3>引入less</h3>
+<pre><code>@import "../node_modules/@ctmobile/ui/lib/ctmobile-ui.less"</code></pre>
+</body>
+</html>

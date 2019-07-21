@@ -1,0 +1,119 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ctmobile-ui-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.ctmobile-ui-container .ctmobile-ui-header {
+  padding: 10px;
+  box-shadow: 0 3px 2px 0 #ccc;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ctmobile-ui-container .ctmobile-ui-header .version {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.ctmobile-ui-container .ctmobile-ui-body {
+  display: flex;
+  flex-grow: 1;
+  min-height: 100%;
+  margin-bottom: 50px;
+}
+
+.ctmobile-ui-container .ctmobile-ui-body .ctmobile-ui-aside {
+  flex-shrink: 0;
+  overflow: auto;
+}
+
+
+.ctmobile-ui-container .ctmobile-ui-body .ctmobile-ui-aside ul {
+  list-style: none;
+}
+
+.ctmobile-ui-container .ctmobile-ui-body .ctmobile-ui-aside > ul {
+  padding: 0;
+}
+
+.ctmobile-ui-container .ctmobile-ui-body .ctmobile-ui-aside .menu-group {
+  padding: 0;
+}
+
+.ctmobile-ui-container .ctmobile-ui-body .ctmobile-ui-aside ul .title {
+  padding-left: 20px;
+}
+
+.ctmobile-ui-container .ctmobile-ui-body .ctmobile-ui-aside ul .menu-item {
+  position: relative;
+  font-size: 18px;
+  padding: 10px 0 10px 40px;
+}
+
+.ctmobile-ui-container .ctmobile-ui-body .ctmobile-ui-aside ul .menu-item:not(:last-of-type) {
+  margin-bottom: 20px;
+}
+
+.ctmobile-ui-container .ctmobile-ui-body .ctmobile-ui-aside ul .menu-item:hover {
+  cursor: pointer;
+  color: #1890ff;
+}
+
+.ctmobile-ui-container .ctmobile-ui-body .ctmobile-ui-aside ul .menu-item.active {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border-right: 3px solid #1890ff;
+}
+
+.ctmobile-ui-container .ctmobile-ui-body .ctmobile-ui-main {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+#ctmobile-ui-iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.ctmobile-ui-container .ctmobile-ui-footer {
+  padding: 50px ;
+  border-top: 1px solid #ccc;
+  display: flex;
+}
+
+.ctmobile-ui-container .ctmobile-ui-footer .footer-item {
+  margin-right: 50px;
+}
+
+.ctmobile-ui-container .ctmobile-ui-footer .footer-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.ctmobile-ui-container .ctmobile-ui-footer .footer-item ul li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.ctmobile-ui-container .ctmobile-ui-footer .footer-item ul li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.ctmobile-ui-container .ctmobile-ui-footer .footer-item ul li a:hover {
+  cursor: pointer;
+  color: #1890ff;
+}

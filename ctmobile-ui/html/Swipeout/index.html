@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+  <title>ctmobile-ui-swipeout-demo</title>
+<link href=/playerljc.github.io/ctmobile-ui/html/Swipeout/index.css?798c0f4e675d5094bdae rel=stylesheet></head>
+<body>
+
+<template id=template>
+  <div class="ct-list ios media-list">
+    <ul>
+      <li class=firstRow>
+        <div class="ct-swipeout swiper-container">
+          <div class=swiper-wrapper>
+            <div class="swiper-slide ct-swipeout-before">
+              <div class="swipeoutBtn del">opt1</div>
+              <div class="swipeoutBtn edit">opt2</div>
+            </div>
+            <a class="swiper-slide ct-swipeout-main item-link item-content">
+              <div class=item-media><img src=http://k.zol-img.com.cn/sjbbs/7692/a7691515_s.jpg width=80></div>
+              <div class=item-inner>
+                <div class=item-title-row>
+                  <div class=item-title>Yellow Submarine</div>
+                  <div class=item-after>$15</div>
+                </div>
+                <div class=item-subtitle>Beatles</div>
+                <div class=item-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut
+                  turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit
+                  amet,
+                  pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel
+                  dui
+                  laoreet, commodo augue id, pulvinar lacus.
+                </div>
+              </div>
+            </a>
+            <div class="swiper-slide ct-swipeout-after">
+              <div class="swipeoutBtn del">opt1</div>
+              <div class="swipeoutBtn edit">opt2</div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<div class=ctmobile-ui-doc>
+  <!-- Swipeout -->
+
+  <!--菜单-->
+  <h1>Swipeout</h1>
+  <ul>
+    <li><a href=#swipeout-layout>基本布局</a></li>
+    <li><a href=#swipeout-initial>初始化</a></li>
+    <li><a href=#swipeout-demo>例子</a></li>
+    <li><a href=#swipeout-methods>方法</a></li>
+    <li>
+      <a href=#swipeout-events>事件</a>
+      <ul>
+        <li><a href=#swipeout-events-init>init</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!--基本布局-->
+  <h2 id=swipeout-layout>基本布局</h2>
+  <dl>
+    <dt>
+<pre>
+<code class=html>
+
+<div class="ct-list ios media-list">
+  <ul>
+    <li>
+      <div class="ct-swipeout swiper-container">
+        <div class=swiper-wrapper>
+          <div class="swiper-slide ct-swipeout-before">
+            <div class="swipeoutBtn del">opt1</div>
+            <div class="swipeoutBtn edit">opt2</div>
+          </div>
+          <a class="swiper-slide ct-swipeout-main item-link item-content">
+            <div class=item-media><img src=http://k.zol-img.com.cn/sjbbs/7692/a7691515_s.jpg width=80></div>
+            <div class=item-inner>
+              <div class=item-title-row>
+                <div class=item-title>Yellow Submarine</div>
+                <div class=item-after>$15</div>
+              </div>
+              <div class=item-subtitle>Beatles</div>
+              <div class=item-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut
+                turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit
+                amet,
+                pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui
+                laoreet, commodo augue id, pulvinar lacus.
+              </div>
+            </div>
+          </a>
+          <div class="swiper-slide ct-swipeout-after">
+            <div class="swipeoutBtn del">opt1</div>
+            <div class="swipeoutBtn edit">opt2</div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+</code>
+</pre>
+    </dt>
+    <dd>
+      <ul>
+        <li>
+          * - 列表根元素(一般是布局元素)
+          <ul>
+            <li>
+              ...
+              .ct-swipeout.swiper-container - 滑动行
+              <ul>
+                <li>
+                  .swiper-wrapper - 滑动行包装
+                  <ul>
+                    <li>.swiper-slide.ct-swipeout-before - 滑动行左侧滑动工具</li>
+                    <li>.swiper-slide.ct-swipeout-main - 滑动行主体</li>
+                    <li>.swiper-slide.ct-swipeout-after - 滑动行右侧滑动工具</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </dd>
+  </dl>
+
+  <!--初始化-->
+  <h2 id=swipeout-initial>初始化</h2>
+  <pre>
+<code class=javascript>
+import SwipeoutListFactory from '@ctmobile/ui-swipeout/swipeoutlist';
+import '@ctmobile/ui-swipeout/swipeout.less';
+
+const el = document.getElementById('list');
+const elInner = el.children[0];
+
+const swiperoutList = SwipeoutListFactory.create(el,
+  {
+    listeners: {
+      init: (swiper) => {
+        console.log(swiper);
+        el.style.visibility = 'visible';
+      },
+      slideChangeTransitionStart: (swiper) => {
+        console.log(swiper);
+      },
+      slideChangeTransitionEnd: (swiper) => {
+        console.log(swiper);
+      },
+    },
+  }
+);
+</code>
+</pre>
+  <table class=events-table cellpadding=0 cellspacing=0>
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{HtmlElement} - el</td>
+      <td>整体元素</td>
+    </tr>
+    <tr>
+      <td>{object} - config</td>
+      <td>
+        <p>配置</p>
+        <div class=method-wrap>
+          <p>listeners {Object} - 事件</p>
+        </div>
+        <div class=method-wrap>
+          <p>direction {String} - [horizontal | vertical] 滑动方向</p>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--例子-->
+  <h2 id=swipeout-demo>例子</h2>
+  <div class=with-device>
+    <!--demo code-->
+    <div class=with-device-code>
+      <dl>
+        <dt><h4>js</h4></dt>
+        <dd>
+
+          <h2>normal</h2>
+<pre>
+<code class=javascript>
+SwipeoutListFactory.create(listEl1,
+  {
+    listeners: {
+      init: (swiper) => {
+        console.log(swiper);
+        listEl1.style.visibility = 'visible';
+      },
+      slideChangeTransitionStart: (swiper) => {
+        console.log(swiper);
+      },
+      slideChangeTransitionEnd: (swiper) => {
+        console.log(swiper);
+      },
+    },
+  }
+);
+</code>
+</pre>
+
+          <h2>slideBeforeAll,slideAfterAll,closeAll</h2>
+<pre>
+<code class=javascript>
+const sliderSwiperoutList = SwipeoutListFactory.create(listEl2,
+  {
+    listeners: {
+      init: (swiper) => {
+        console.log(swiper);
+        listEl2.style.visibility = 'visible';
+      },
+      slideChangeTransitionStart: (swiper) => {
+        console.log(swiper);
+      },
+      slideChangeTransitionEnd: (swiper) => {
+        console.log(swiper);
+      },
+    },
+  }
+);
+
+document.getElementById('slideBeforeAllBtn').addEventListener('click', () => {
+  sliderSwiperoutList.slideBeforeAll();
+});
+
+document.getElementById('slideAfterAll').addEventListener('click', () => {
+  sliderSwiperoutList.slideAfterAll();
+});
+
+document.getElementById('closeAll').addEventListener('click', () => {
+  sliderSwiperoutList.closeAll();
+});
+</code>
+</pre>
+
+          <h2>deleteLine</h2>
+<pre>
+<code class=javascript>
+const deleteLineSwiperoutList = SwipeoutListFactory.create(listEl3,
+  {
+    listeners: {
+      init: (swiper) => {
+        console.log(swiper);
+        listEl3.style.visibility = 'visible';
+      },
+      slideChangeTransitionStart: (swiper) => {
+        console.log(swiper);
+      },
+      slideChangeTransitionEnd: (swiper) => {
+        console.log(swiper);
+      },
+    },
+  }
+);
+
+const swiperoutBtns = listEl3.querySelectorAll('.swipeoutBtn');
+Array.from(swiperoutBtns).map((el) => {
+  el.addEventListener('click', () => {
+    const firstRowEl = listEl3.querySelector('.firstRow');
+    const swiper = deleteLineSwiperoutList.getSwiper(0);
+    swiper.removeAnimation(firstRowEl);
+  });
+});
+</code>
+</pre>
+
+          <h2>dynamic</h2>
+<pre>
+<code class=javascript>
+const dynamicSwiperoutList = SwipeoutListFactory.create(listEl4,
+  {
+    listeners: {
+      init: (swiper) => {
+        console.log(swiper);
+        listEl4.style.visibility = 'visible';
+      },
+      slideChangeTransitionStart: (swiper) => {
+        console.log(swiper);
+      },
+      slideChangeTransitionEnd: (swiper) => {
+        console.log(swiper);
+      },
+    },
+  }
+);
+
+document.getElementById('addBtn').addEventListener('click', () => {const insertEl = Dom6.createElement(`<pre>
+<code class=html>
+<li>
+  <div class="ct-swipeout swiper-container">
+    <div class=swiper-wrapper>
+      <div class="swiper-slide ct-swipeout-before">
+        <div class="swipeoutBtn del">opt1</div>
+        <div class="swipeoutBtn edit">opt2</div>
+      </div>
+      <a class="swiper-slide ct-swipeout-main item-link item-content">
+        <div class=item-media><img src=http://k.zol-img.com.cn/sjbbs/7692/a7691515_s.jpg width=80></div>
+        <div class=item-inner>
+          <div class=item-title-row>
+            <div class=item-title>Yellow Submarine</div>
+            <div class=item-after>$15</div>
+          </div>
+          <div class=item-subtitle>Beatles</div>
+          <div class=item-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut
+            turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit
+            amet,
+            pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui
+            laoreet, commodo augue id, pulvinar lacus.
+          </div>
+        </div>
+      </a>
+      <div class="swiper-slide ct-swipeout-after">
+        <div class="swipeoutBtn del">opt1</div>
+        <div class="swipeoutBtn edit">opt2</div>
+      </div>
+    </div>
+  </div>
+</li>
+</code>
+</pre>`);
+  const ulEl = listEl4.children[0];
+  ulEl.appendChild(insertEl);
+  dynamicSwiperoutList.refresh();
+});
+</code>
+</pre>
+
+        </dd>
+      </dl>
+    </div>
+
+    <!--demo view-->
+    <div class=with-device-view>
+      <div class=ctmobile-ui-doc-demo-device>
+        <div class=ctmobile-ui-doc-demo-device-inner id=ctmobile-ui-doc-demo-device>
+          <div class=demo-inner>
+            <dl>
+              <dt><h3>.normal</h3></dt>
+              <dd id=normalDemo></dd>
+            </dl>
+
+            <dl>
+              <dt>
+                <h3>.slideBeforeAll</h3>
+                <h3>.slideAfterAll</h3>
+                <h3>.closeAll</h3>
+              </dt>
+              <dd id=slideDemo>
+                <button id=slideBeforeAllBtn>slideBeforeAll</button>
+                <button id=slideAfterAll>slideAfterAll</button>
+                <button id=closeAll>closeAll</button>
+              </dd>
+            </dl>
+
+            <dl>
+              <dt><h3>.deleteLine</h3></dt>
+              <dd id=deleteLineDemo></dd>
+            </dl>
+
+            <dl>
+              <dt><h3>dynamic</h3></dt>
+              <dd id=dynamicDemo>
+                <button id=addBtn>add</button>
+              </dd>
+            </dl>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--方法-->
+  <h2 id=swipeout-methods>方法</h2>
+
+  <dl>
+    <dt><h2>.SwipeoutList</h2></dt>
+    <dd>
+      <div class=method-wrap>
+        <p>changeDirection(
+          <span class=parameter>swiper</span>,
+          <span class=parameter>direction</span>
+        ) - changeDirection修改滑动方向</p>
+        <ul class=method-parameters>
+          <li><span class=parameter>swiper</span>-<span class=parameterType>Swiperout</span>Swiper</li>
+          <li><span class=parameter>direction</span>-<span class=parameterType>String</span>方向</li>
+        </ul>
+      </div>
+
+      <div class=method-wrap>
+        <p>slideBefore(<span class=parameter>swiper</span>) - 滑动到之前的操作组</p>
+        <ul class=method-parameters>
+          <li><span class=parameter>swiper</span>-<span class=parameterType>Swiperout</span>swiper</li>
+        </ul>
+      </div>
+
+      <div class=method-wrap>
+        <p>slideAfter(<span class=parameter>swiper</span>) - 滑动到之后的操作组</p>
+        <ul class=method-parameters>
+          <li><span class=parameter>swiper</span>-<span class=parameterType>Swiperout</span>swiper</li>
+        </ul>
+      </div>
+
+      <div class=method-wrap>
+        <p>close(<span class=parameter>swiper</span>) - 关闭所有slider</p>
+        <ul class=method-parameters>
+          <li><span class=parameter>swiper</span>-<span class=parameterType>Swiperout</span>swiper</li>
+        </ul>
+      </div>
+
+      <div class=method-wrap>
+        <p>slideBeforeAll - 所有行滑动到before操作</p>
+      </div>
+
+      <div class=method-wrap>
+        <p>slideAfterAll - 所有行滑动到after操作</p>
+      </div>
+
+      <div class=method-wrap>
+        <p>changeDirections - 所有slider改变滑动方向</p>
+      </div>
+
+      <div class=method-wrap>
+        <p>closeAll - 关闭所有滑动</p>
+      </div>
+
+      <div class=method-wrap>
+        <p>destorySwiper(<span class=parameter>swiper</span>) - 销毁指定的Swiper</p>
+        <ul class=method-parameters>
+          <li><span class=parameter>swiper</span>-<span class=parameterType>Swiperout</span>Swiper</li>
+        </ul>
+      </div>
+
+      <div class=method-wrap>
+        <p>removeSwiper(<span class=parameter>swiper</span>) - 删除swiper</p>
+        <ul class=method-parameters>
+          <li><span class=parameter>swiper</span>-<span class=parameterType>Swiperout</span>swiper</li>
+        </ul>
+      </div>
+
+      <div class=method-wrap>
+        <p>getSwiper(<span class=parameter>index</span>) - 根据索引返回Swiper</p>
+        <ul class=method-parameters>
+          <li><span class=parameter>index</span>-<span class=parameterType>String</span>索引</li>
+        </ul>
+      </div>
+
+      <div class=method-wrap>
+        <p>refresh - 刷新</p>
+      </div>
+
+      <div class=method-wrap>
+        <p>destory - 销毁所有</p>
+      </div>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><h2>.Swipeout</h2></dt>
+    <dd>
+      <div class=method-wrap>
+        <p>changeDirection(<span class=parameter>direction</span>) - changeDirection修改滑动方向</p>
+        <ul class=method-parameters>
+          <li><span class=parameter>direction</span>-<span class=parameterType>String</span>方向</li>
+        </ul>
+      </div>
+
+      <div class=method-wrap>
+        <p>refresh - 刷新</p>
+      </div>
+
+      <div class=method-wrap>
+        <p>slideBefore - 滑动到之前的操作组</p>
+      </div>
+
+      <div class=method-wrap>
+        <p>slideAfter - 滑动到之后的操作组</p>
+      </div>
+
+      <div class=method-wrap>
+        <p>close - 关闭所有slider</p>
+      </div>
+
+      <div class=method-wrap>
+        <p>destory - 销毁指定的Swiper</p>
+      </div>
+
+      <div class=method-wrap>
+        <p>remove - 删除swiper</p>
+      </div>
+
+      <div class=method-wrap>
+        <p>removeAnimation(<span class=parameter>el</span>) - 动画删除行</p>
+        <ul class=method-parameters>
+          <li><span class=parameter>el</span>-<span class=parameterType>HtmlElement</span>删除元素</li>
+        </ul>
+      </div>
+
+      <div class=method-wrap>
+        <p>on(
+          <span class=parameter>type</span>,
+          <span class=parameter>handler</span>,
+          ) - 注册事件</p>
+        <ul class=method-parameters>
+          <li>
+            <span class=parameter>type</span>-<span class=parameterType>string</span>
+            事件类型
+          </li>
+          <li>
+            <span class=parameter>handler</span>-<span class=parameterType>Function</span>
+            事件句柄
+          </li>
+        </ul>
+      </div>
+
+      <div class=method-wrap>
+        <p>off(
+          <span class=parameter>type</span>,
+          <span class=parameter>handler</span>,
+          ) - 注销事件</p>
+        <ul class=method-parameters>
+          <li>
+            <span class=parameter>type</span>-<span class=parameterType>string</span>
+            事件类型
+          </li>
+          <li>
+            <span class=parameter>handler</span>-<span class=parameterType>Function</span>
+            事件句柄
+          </li>
+        </ul>
+      </div>
+
+      <div class=method-wrap>
+        <p>clearAll - 注销所有事件</p>
+      </div>
+
+    </dd>
+  </dl>
+
+  <!--事件-->
+  <h2 id=swipeout-events>事件</h2>
+  <table class=events-table cellpadding=0 cellspacing=0>
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id=swipeout-events-init>
+      <td>init</td>
+      <td>初始化完成</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<script src=/playerljc.github.io/ctmobile-ui/html/Swipeout/static\dll\commons.js?798c0f4e675d5094bdae></script><script src=/playerljc.github.io/ctmobile-ui/html/Swipeout/runtime.04e3b07baac3e3bcb8f0.bundle.js?798c0f4e675d5094bdae></script><script src=/playerljc.github.io/ctmobile-ui/html/Swipeout/vendors.e36b4a8af0f200b4a1f0.bundle.js?798c0f4e675d5094bdae></script><script src=/playerljc.github.io/ctmobile-ui/html/Swipeout/index.9724326fae9c32788881.bundle.js?798c0f4e675d5094bdae></script></body>
+</html>
