@@ -50,7 +50,6 @@ var App = (function () {
         var el = ev.target;
         if(!el.classList.contains('menu-item')) return false;
 
-        debugger
         globalIndicator = window.GlobalIndicator.open();
 
         if(self.curMenuEl) {
