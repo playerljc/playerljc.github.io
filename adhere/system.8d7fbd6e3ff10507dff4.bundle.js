@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_ctsj_build=self.webpackChunk_ctsj_build||[]).push([[4651],{14651:function(u,n,c){c.d(n,{Z:function(){return e}});var t=c(90171),e=function(u){(0,t.useEffect)((function(){null==u||u()}),[])}}}]);
