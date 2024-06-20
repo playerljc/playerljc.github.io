@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_ctsj_build=self.webpackChunk_ctsj_build||[]).push([[5976],{95976:(o,c,n)=>{n.d(c,{Y:()=>r});const r=o=>({color:o.colorLink,textDecoration:"none",outline:"none",cursor:"pointer",transition:`color ${o.motionDurationSlow}`,"&:focus, &:hover":{color:o.colorLinkHover},"&:active":{color:o.colorLinkActive}})}}]);
