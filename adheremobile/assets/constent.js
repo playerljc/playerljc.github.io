@@ -1,0 +1,1 @@
+let ins=null;const mapping={"dev-development":{localPrefix:"http://localhost:9099/"},"dev-production":{localPrefix:"http://localhost:9099/"},"pe-development":{localPrefix:"http://localhost:9099/"},"pe-production":{localPrefix:"http://localhost:9099/"}};function Create({mode:t,environment:e}){return mapping[`${e}-${t}`]}window.Constent=function(t){return ins||(ins=Create(t)),ins};

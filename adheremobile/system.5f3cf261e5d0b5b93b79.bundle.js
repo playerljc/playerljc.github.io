@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_ctsj_build=self.webpackChunk_ctsj_build||[]).push([[8063],{18063:(s,e,a)=>{a.d(e,{A:()=>u});var t=a(26322),c=a(92314),i=a(31934),n=a.n(i);const l="adm-safe-area",u=s=>(0,c.q)(s,t.createElement("div",{className:n()(l,`${l}-position-${s.position}`)}))}}]);

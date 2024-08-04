@@ -1,0 +1,2 @@
+.adm-safe-area{--multiple:var(--adm-safe-area-multiple,1);display:block;width:100%}.adm-safe-area-position-top{padding-top:calc(env(safe-area-inset-top)*var(--multiple))}.adm-safe-area-position-bottom{padding-bottom:calc(env(safe-area-inset-bottom)*var(--multiple))}
+/*# sourceMappingURL=system.152e2460dca4c931df5d.css.map*/
