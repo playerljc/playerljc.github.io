@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_ctsj_build=self.webpackChunk_ctsj_build||[]).push([[9788],{79788:(u,s,t)=>{t.d(s,{A:()=>n});var e=t(78127),c=t(26322);const n=function(){var u=(0,e.zs)((0,c.useState)({}),2)[1];return(0,c.useCallback)((function(){return u({})}),[])}}}]);

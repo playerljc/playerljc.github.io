@@ -1,0 +1,2 @@
+.adm-auto-center{display:flex;justify-content:center}.adm-auto-center-content{flex:0 1 auto}.adm-mask{--z-index:var(--adm-mask-z-index,1000);display:block;height:100%;position:fixed;top:0;width:100%;z-index:var(--z-index)}[dir=ltr] .adm-mask{left:0}[dir=rtl] .adm-mask{right:0}.adm-mask-aria-button{height:100%;pointer-events:none;position:absolute;top:0;width:100%;z-index:0}[dir=ltr] .adm-mask-aria-button{left:0}[dir=rtl] .adm-mask-aria-button{right:0}.adm-mask-content{z-index:1}
+/*# sourceMappingURL=system.0c912a1ebc049a3e994b.css.map*/
